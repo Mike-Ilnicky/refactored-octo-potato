@@ -1,0 +1,70 @@
+<div class="loading" *ngIf="loading">
+  <div class="loading-content">
+    <div class="lds-dual-ring"></div>
+  </div>
+</div>
+<div class="bg-grey">
+  <div class="container vertical-center align-items-center ">
+    <div class="main-block">
+      <div class="col img-wrap">
+        <div class="p-5">
+          <div class="small d-flex justify-content-between">
+            <small>
+              <a href="" [routerLink]="''">Go back</a>
+            </small>
+            <small>Have an account? <a href="" [routerLink]="''">Sign In</a></small>
+          </div>
+
+          <div class="">
+            <h2 class="h2">Sign up on our platform</h2>
+            <small class="small">Sign in on our platform</small>
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <div class="form-group pt-5">
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username"
+                       formControlName="username">
+              </div>
+              <div class="form-group pt-3">
+                <input type="password" class="form-control" id="Password" placeholder="Password"
+                       formControlName="password">
+              </div>
+              <div class="form-group pt-3">
+                <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm password"
+                       formControlName="password">
+              </div>
+              <div>
+                <div class="d-inline-block pr-2">
+                  <input class="" id="check1" type="checkbox">
+                </div>
+                <label for="check1"> I have read the Terms and Conditions.</label>
+              </div>
+              <div class="validation"
+                   *ngIf="form.controls['password'].touched && form.controls['password'].errors || form.controls['username'].errors && form.controls['username'].touched"
+              >
+                <span>Username is incorrect</span>
+              </div>
+              <div class="validation"
+                   *ngIf="authFail"
+              >
+                <span>{{errMsg}}</span>
+              </div>
+              <div class="pt-3">
+                <button type="submit"
+
+                        class="btn btn-primary btn-block"
+                        [disabled]="form.invalid"
+                >
+                  Sign up now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col d-none d-md-block img-wrap">
+        <div class="img-fit" style="background-image: url('https://placeimg.com/500/600/tech')">
+          <img src="https://placeimg.com/640/480/tech" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

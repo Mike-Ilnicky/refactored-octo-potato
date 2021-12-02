@@ -1,0 +1,105 @@
+@import "src/app/shared/variables";
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: #0d7185;
+  color: white;
+  padding: 5px 10px;
+
+  span {
+    flex: 1;
+  }
+}
+
+.btn-exit {
+  color: white;
+  padding: 5px;
+  margin: 0;
+
+  svg {
+    fill: white;
+  }
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.left-bar {
+  width: 250px;
+  min-height: 100vh;
+  text-align: center;
+  background-color: white;
+  color: #000;
+  padding: 15px;
+  border-right: 1px solid #f6f9fd;
+  overflow: auto;
+
+  > span {
+    text-transform: capitalize;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  flex: 1;
+  width: 70%;
+}
+
+.profile-logo {
+  display: block;
+  width: 90px;
+  height: 90px;
+  background-color: #f6f9fd;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto 10px auto;
+
+  span {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    max-width: 100px;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+}
+
+.footer {
+  align-items: end;
+
+  small {
+    color: #aaaaaa;
+  }
+}
+
+.btn-custom {
+  width: 100%;
+  border: 1px solid transparent;
+  background-color: $grey;
+  text-align: left;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border-left: 3px solid #0d7185;
+  display: flex;
+  align-items: center;
+
+  svg {
+    display: block;
+    width: 12px;
+    margin-right: 5px;
+  }
+
+  &:hover {
+    border-left: 1px solid transparent;
+    background-color: darken($grey, 10%);
+  }
+}

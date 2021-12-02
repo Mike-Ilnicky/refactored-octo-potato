@@ -1,0 +1,79 @@
+<div class="content">
+  <div class="main-wrap">
+    <div class="product-box">
+      <div class="img-wrap">
+        <span class="img-fit" style="background-image: url('https://placeimg.com/800/800/tech')"></span>
+      </div>
+      <h2 class="text-center">{{product.title | titlecase}}</h2>
+      <p class="text-center">{{product.text}}</p>
+    </div>
+    <div class="comment-box">
+
+      <div class="header">
+        <h3 class="">Your review</h3>
+      </div>
+
+      <div class="box leave-comment">
+        <form class="" [formGroup]="form">
+            <textarea formControlName="textArea" class="area" name="" id="" cols="30" rows="10"
+                      placeholder="Type your review..."></textarea>
+          <app-rating></app-rating>
+          <button class="btn-primary" [disabled]="form.invalid" (click)="addReview()">submit review</button>
+        </form>
+        <h4>This is maybe not working</h4>
+        <p class="red" *ngIf="errorMsg != ''">{{errorMsg | json}}</p>
+      </div>
+
+      <div class="position-relative">
+        <div class="loading" *ngIf="loading">
+          <div class="loading-content">
+            <div class="lds-dual-ring"></div>
+          </div>
+        </div>
+
+        <div class="box" *ngFor="let item of reviews">
+          <h5 class="">
+            {{item.created_by.username}} at {{item.created_at | date: 'HH:mm d MMM YYYY '}}
+          </h5>
+          <div class="small-ratings">
+            <i class="fa fa-star rating-color" *rating="item.rate"></i>
+            <i class="fa fa-star" *rating="5-item.rate"></i>
+          </div>
+          <p>{{item.text}}</p>
+        </div>
+<!--        <div class="box">-->
+<!--          <pre>{{product | json}}</pre>-->
+<!--          <h5 class=""><strong>User 1</strong> at 14:08, 10 Nov 2021</h5>-->
+<!--          <div class="small-ratings">-->
+<!--            <i class="fa fa-star rating-color" *rating="4"></i>-->
+<!--            <i class="fa fa-star" *rating="5-4"></i>-->
+<!--          </div>-->
+<!--          <p>This product is very good</p>-->
+<!--        </div>-->
+        <div class="box" *ngIf="noReviews">
+          <h5>No reviews yet!</h5>
+        </div>
+      </div>
+      <!--      <div>-->
+      <!--        <div class="d-flex justify-content-between align-items-center">-->
+      <!--          <div class="ratings">-->
+      <!--            <i class="fa fa-star rating-color" *rating="rating"></i>-->
+      <!--            <i class="fa fa-star" *rating="5-rating"></i>-->
+      <!--          </div>-->
+      <!--          <h5 class="review-count">12 Reviews</h5>-->
+      <!--        </div>-->
+
+      <!--        <div class="mt-1 d-flex justify-content-between align-items-center">-->
+      <!--          <h5 class="review-stat">Front Office</h5>-->
+
+      <!--        </div>-->
+
+      <!--        <pre>-->
+      <!--          {{reviews | json}}-->
+      <!--        </pre>-->
+      <!--      </div>-->
+    </div>
+  </div>
+</div>
+
+

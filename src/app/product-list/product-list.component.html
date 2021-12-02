@@ -1,0 +1,24 @@
+<div class="content">
+  <div *ngIf="isLoading">
+    <div class="loading">
+      <div class="loading-content">
+        <div class="lds-dual-ring"></div>
+      </div>
+    </div>
+  </div>
+  <div class="products-list">
+    <div class="header">
+      <div class="item-name">Product Name</div>
+      <div class="item-description">Description</div>
+      <div>Actions</div>
+    </div>
+  </div>
+  <div>
+    <div class="items" *ngFor="let item of productList">
+      <div class="item-name">{{item.title | titlecase}}</div>
+      <div class="item-description">{{item.text | titlecase}}</div>
+      <div class=""><button class="btn btn-primary btn-wider" (click)="openProduct(item)">open</button></div>
+    </div>
+  </div>
+</div>
+

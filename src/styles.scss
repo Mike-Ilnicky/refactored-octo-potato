@@ -1,1 +1,204 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/shared/variables";
+
+html {
+  overflow: hidden;
+}
+
+hr {
+  background-color: #888;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #0d7185;
+  border-radius: 5px;
+  border: transparent;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: darken(#0d7185, 5%);
+    border-color: #0d7185;
+    box-shadow: 0 0 0 0.25rem rgb(13 113 133 / 50%);
+  }
+
+  &:disabled {
+    border-color: transparent;
+    background-color: #aaaaaa;
+    box-shadow: none;
+  }
+}
+
+.btn-wider {
+  padding: 8px 35px;
+}
+
+.logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-image: url("../src/images/logo.png");
+}
+
+.ratings {
+  margin-right: 10px
+}
+
+.ratings i {
+  color: #cecece;
+  font-size: 32px
+}
+
+.rating-color {
+  color: #fbc634 !important
+}
+
+.review-count {
+  font-weight: 400;
+  margin-bottom: 2px;
+  font-size: 24px !important
+}
+
+.small-ratings i {
+  color: #cecece
+}
+
+.review-stat {
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 2px
+}
+
+.h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.vertical-center {
+  display: flex;
+  height: 100vh;
+  min-height: 500px;
+}
+
+.bg-grey {
+  background-color: $grey2;
+}
+
+.main-block {
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  max-width: 700px;
+  min-height: 500px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid $grey;
+  border-radius: 5px;
+}
+
+.small {
+  color: #aaa;
+
+  a {
+    color: #aaa;
+
+    &:hover {
+      color: darken(#aaa, 40%)
+    }
+  }
+}
+
+.img-fit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  > img {
+    display: none;
+  }
+}
+
+.loading {
+  position: absolute;
+  background-color: rgba(5, 5, 5, 0.5);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1111;
+  min-height: 130px;
+}
+
+.loading-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  //margin-top: -25px;
+  //margin-left: -25px;
+  transform: translate(-50%, -50%);
+}
+
+.ldsdualring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+
+  &:after,
+  &:before {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    content: " ";
+  }
+
+  &:after {
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+
+  &:before {
+    width: 42px;
+    height: 42px;
+    margin: 16px;
+    animation: ldsdualring 1.2s linear infinite;
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ldsdualring {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+

@@ -1,0 +1,62 @@
+<div class="bg-grey">
+  <div class="container vertical-center align-items-center ">
+    <div class="main-block">
+      <div class="col">
+        <div class="p-5">
+          <div class="small-left">
+            <small class="small">Dont have account? <a href="" [routerLink]="['/sign-up-page']">Sign Up</a></small>
+          </div>
+          <div class="loading" *ngIf="loading">
+            <div class="loading-content">
+              <div class="lds-dual-ring"></div>
+            </div>
+          </div>
+          <div class="">
+            <h2 class="h2">Sign in to Synapse Internship</h2>
+            <small class="small">Sign in on our platform</small>
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <div class="form-group pt-5">
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username"
+                       (blur)="onBlurMethod()"
+                       formControlName="username">
+              </div>
+              <div class="form-group pt-3">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                       (blur)="onBlurMethod()"
+                       formControlName="password">
+              </div>
+              <div class="validation"
+                   *ngIf="form.controls['password'].touched && form.controls['password'].errors || form.controls['username'].errors && form.controls['username'].touched"
+              >
+                <span>Username is incorrect</span>
+              </div>
+<!--              <pre class="validation"-->
+<!--                   *ngIf="authFail"-->
+<!--              >-->
+<!--                <span>{{err | json}}</span>-->
+
+<!--              </pre>-->
+              <div class="validation"
+                   *ngIf="authFail"
+              >
+                <span>{{errMsg}}</span>
+              </div>
+              <div class="pt-3">
+                <button type="submit"
+                        class="btn btn-primary btn-block"
+                        [disabled]="form.invalid"
+                >Sign in
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col d-none d-md-block img-wrap">
+        <div class="img-fit" style="background-image: url('https://placeimg.com/500/600/tech')">
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
