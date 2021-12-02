@@ -11,6 +11,7 @@ export class RatingComponent {
   constructor( private productRating: ProductService) {}
   stars: number[] = [1, 2, 3, 4, 5];
   selectedValue: number = 0;
+  showValue: number = 0;
 
   update() {
     this.selectedValue = 0;
@@ -23,29 +24,31 @@ export class RatingComponent {
   }
 
   addClass(star: number) {
-    let elId = "";
-    if (this.selectedValue != 0) {
-      for (let i = 0 ; i < 5; i++) {
-        elId = "starId" + i;
-        document.getElementById(elId)?.classList.remove("rating-color");
-      }
-    }
-    for (let i = 0; i < star; i++) {
-      elId = "starId" + i;
-      document.getElementById(elId)?.classList.add("rating-color");
-    }
+    this.showValue = star;
+    // let elId = "";
+    // if (this.selectedValue != 0) {
+    //   for (let i = 0 ; i < 5; i++) {
+    //     elId = "starId" + i;
+    //     document.getElementById(elId)?.classList.remove("rating-color");
+    //   }
+    // }
+    // for (let i = 0; i < star; i++) {
+    //   elId = "starId" + i;
+    //   document.getElementById(elId)?.classList.add("rating-color");
+    // }
   }
 
-  removeClass(star: number) {
-    let elId = "";
-    for (let i = 0 ; i < 5; i++) {
-      elId = "starId" + i;
-      document.getElementById(elId)?.classList.remove("rating-color");
-    }
-    for (let i = 0; i <= this.selectedValue -1; i++) {
-      console.log("star i", star);
-      elId = "starId" + i;
-      document.getElementById(elId)?.classList.add("rating-color");
-    }
+  removeClass() {
+    this.showValue = this.selectedValue;
+    // let elId = "";
+    // for (let i = 0 ; i < 5; i++) {
+    //   elId = "starId" + i;
+    //   document.getElementById(elId)?.classList.remove("rating-color");
+    // }
+    // for (let i = 0; i <= this.selectedValue -1; i++) {
+    //   console.log("star i", star);
+    //   elId = "starId" + i;
+    //   document.getElementById(elId)?.classList.add("rating-color");
+    // }
   }
 }

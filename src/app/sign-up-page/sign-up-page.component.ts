@@ -65,12 +65,6 @@ export class SignUpPageComponent implements OnInit {
       })
   }
 
-  closeTerms(event: any) {
-    if (event.target === document.getElementById('terms')) {
-      this.terms = !this.terms;
-    }
-  }
-
   toggle(event: any) {
     event.preventDefault();
     this.terms = !this.terms;

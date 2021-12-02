@@ -11,6 +11,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 #### NodeJS version 6.13.4
 #### strict `true`
 
+#### Maybe better to use `https://material.angular.io` Not Bootstrap
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

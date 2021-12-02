@@ -8,3 +8,6 @@ NodeJS version 6.13.4
 Angular version 12.2.13
 
 strict true!
+
+Maybe better to use https://material.angular.io
+Not Bootstrap
