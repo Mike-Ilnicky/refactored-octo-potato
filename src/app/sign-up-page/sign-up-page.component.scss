@@ -4,16 +4,17 @@
   width: 100%;
 }
 
-.btn-primary {
-  font-size: 16px;
-  text-transform: uppercase;
-  background-color: #0d7185;
+.terms {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 13px;
 
-  &:hover {
-    background-color: darken(#0d7185, 5%);
+  input {
+    display: inline-block;
+    margin-right: 7px;
   }
 }
-
 
 .validation {
   color: red;
@@ -22,7 +23,11 @@
 .small-left {
   padding-bottom: 60px;
   text-align: end;
+}
 
+.modal {
+  display: block !important;
+  background-color: rgba(1,1,1, 0.4);
 }
 
 .loading {

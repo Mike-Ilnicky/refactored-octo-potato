@@ -8,12 +8,14 @@ import {Router} from "@angular/router";
   templateUrl: './sign-up-page.component.html',
   styleUrls: ['./sign-up-page.component.scss']
 })
+
 export class SignUpPageComponent implements OnInit {
   auth = {};
   loading = false;
   err = '';
   errMsg = '';
   authFail: boolean = false;
+  terms = false;
 
   form: FormGroup =  new FormGroup({
     username: new FormControl(null),
@@ -53,16 +55,24 @@ export class SignUpPageComponent implements OnInit {
           // this._token = resp.token;
           this.requests._token = resp.token;
           this.authFail = false;
-          this.router.navigate(['/main-page']);
+          this.router.navigate(['/main-page/product-list']);
         } else {
           this.authFail = true;
           this.loading = false;
           this.err = resp;
           this.errMsg = resp.message;
         }
-        // console.log(this._token);
       })
-
   }
 
+  closeTerms(event: any) {
+    if (event.target === document.getElementById('terms')) {
+      this.terms = !this.terms;
+    }
+  }
+
+  toggle(event: any) {
+    event.preventDefault();
+    this.terms = !this.terms;
+  }
 }

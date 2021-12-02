@@ -3,23 +3,40 @@
     <div class="lds-dual-ring"></div>
   </div>
 </div>
+<div class="modal fade show" id="terms" (click)="closeTerms($event)" *ngIf="terms" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Terms and Conditions.</h5>
+        <button type="button" class="close" aria-label="Close" (click)="toggle($event)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis deleniti doloribus ducimus eaque hic in ipsa ipsam labore, neque nesciunt nulla omnis quas quidem quos totam vitae? Cum, fugiat.
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="bg-grey">
   <div class="container vertical-center align-items-center ">
     <div class="main-block">
       <div class="col img-wrap">
         <div class="p-5">
           <div class="small d-flex justify-content-between">
-            <small>
+            <span class="">
               <a href="" [routerLink]="''">Go back</a>
-            </small>
-            <small>Have an account? <a href="" [routerLink]="''">Sign In</a></small>
+            </span>
+            <span>Have an account? <a href="" [routerLink]="''">Sign In</a></span>
           </div>
 
-          <div class="">
+          <div class="d-flex row">
             <h2 class="h2">Sign up on our platform</h2>
             <small class="small">Sign in on our platform</small>
             <form [formGroup]="form" (ngSubmit)="submit()">
-              <div class="form-group pt-5">
+              <div class="form-group pt-4">
                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username"
                        formControlName="username">
               </div>
@@ -32,10 +49,10 @@
                        formControlName="password">
               </div>
               <div>
-                <div class="d-inline-block pr-2">
+                <div class="terms d-inline-block pr-2">
                   <input class="" id="check1" type="checkbox">
+                  <label for="" class="d-inline">I have read the <a href="" (click)="toggle($event)">Terms and Conditions.</a></label>
                 </div>
-                <label for="check1"> I have read the Terms and Conditions.</label>
               </div>
               <div class="validation"
                    *ngIf="form.controls['password'].touched && form.controls['password'].errors || form.controls['username'].errors && form.controls['username'].touched"
@@ -49,7 +66,6 @@
               </div>
               <div class="pt-3">
                 <button type="submit"
-
                         class="btn btn-primary btn-block"
                         [disabled]="form.invalid"
                 >

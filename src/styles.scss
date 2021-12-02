@@ -100,14 +100,16 @@ hr {
 }
 
 .small {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+a {
   color: #aaa;
 
-  a {
-    color: #aaa;
-
-    &:hover {
-      color: darken(#aaa, 40%)
-    }
+  &:hover {
+    color: darken(#aaa, 40%)
   }
 }
 
@@ -136,6 +138,18 @@ hr {
   z-index: 1111;
   min-height: 130px;
 }
+
+.close {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+
 
 .loading-content {
   position: absolute;
