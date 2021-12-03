@@ -6,6 +6,7 @@ import {MainPageComponent} from "./main-page/main-page.component";
 import {ProductComponent} from "./product/product.component";
 import {ProductListComponent} from "./product-list/product-list.component";
 import {AuthGuard} from "./auth.guard";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
     children: [
       {path: 'product-list', component: ProductListComponent},
       {path: 'product', component: ProductComponent}
-    ]}
+    ]},
+  {path: '404', component: NotFoundComponent},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { HttpClientModule } from "@angular/common/http";
 import { RatingDirective } from "./directives/rating.directive";
 import { RatingComponent } from './product/rating/rating.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RatingComponent } from './product/rating/rating.component';
     ProductComponent,
     RatingDirective,
     RatingComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
