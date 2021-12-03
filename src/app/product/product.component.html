@@ -8,7 +8,6 @@
       <p class="text-center">{{product.text}}</p>
     </div>
     <div class="comment-box">
-
       <div class="header">
         <h3 class="">Your review</h3>
       </div>
@@ -41,7 +40,7 @@
 <!--          </div>-->
 
           <div class="small-ratings d-flex">
-            <div *ngFor="let star of maxRating(5)">
+            <div *ngFor="let star of maxRating(5)"> <!-- Идея в том что если изменим рейтинг не из 5 звезд а из 10 то просто надо поменять число которое передается в функцию -->
               <i class="fa fa-star" [ngClass]="{'rating-color': (star <= item.rate)}"></i>
             </div>
           </div>
