@@ -35,6 +35,7 @@ export interface Reviews {
 })
 export class RequestsService {
   constructor(private http: HttpClient) {}
+  public isAuth = false;
 
   _token = '';
 

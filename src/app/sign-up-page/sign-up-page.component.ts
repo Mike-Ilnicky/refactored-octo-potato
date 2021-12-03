@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {RequestsService} from "../services/requests.service";
 import {Router} from "@angular/router";
 
@@ -20,6 +20,7 @@ export class SignUpPageComponent implements OnInit {
   form: FormGroup =  new FormGroup({
     username: new FormControl(null),
     password: new FormControl(null),
+    confirmPassword: new FormControl(null),
   });
 
   constructor(
@@ -35,10 +36,27 @@ export class SignUpPageComponent implements OnInit {
       password: new FormControl(null, [
         Validators.required,
         Validators.minLength(6)
-      ])
-    })
+      ]),
+      confirmPassword: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+      terms: new FormControl(null, [Validators.required])
+    },
+      {validators: [this.checkPasswords, this.termsAndConditions]})
 
     console.log(this.form);
+  }
+
+  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => {
+    let pass = group.get('password')?.value;
+    let confirmPass = group.get('confirmPassword')?.value
+    return pass === confirmPass ? null : { notSame: true }
+  }
+
+  termsAndConditions: ValidatorFn = (group:AbstractControl): ValidationErrors | null => {
+    let term = group.get('terms')?.value;
+    return term === false ? { noTerms: true } : null
   }
 
   submit() {
@@ -54,6 +72,7 @@ export class SignUpPageComponent implements OnInit {
         if (resp.success) {
           // this._token = resp.token;
           this.requests._token = resp.token;
+          this.requests.isAuth = true;
           this.authFail = false;
           this.router.navigate(['/main-page/product-list']);
         } else {

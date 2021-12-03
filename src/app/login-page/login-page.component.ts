@@ -58,6 +58,7 @@ export class LoginPageComponent implements OnInit {
         if (resp.success) {
           this._token = resp.token;
           this.requests._token = resp.token;
+          this.requests.isAuth = true;
           this.authFail = false;
           this.router.navigate(['/main-page/product-list']);
         } else {
