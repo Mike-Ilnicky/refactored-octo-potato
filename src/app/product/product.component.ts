@@ -91,4 +91,12 @@ export class ProductComponent implements OnInit {
       this.errorMsg = error.status + ' ' + error.statusText;
     });
   }
+
+  maxRating(number: number) {
+    let maxRateArr = []
+    for (let i=1; i <= number; i++) {
+      maxRateArr.push(i);
+    }
+    return maxRateArr;
+  }
 }

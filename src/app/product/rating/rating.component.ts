@@ -14,7 +14,7 @@ export class RatingComponent {
   showValue: number = 0;
 
   update() {
-    this.selectedValue = 0;
+    this.selectedValue = this.showValue = 0;
     this.countStar(this.selectedValue);
   }
 

@@ -35,9 +35,15 @@
           <h5 class="">
             {{item.created_by.username}} at {{item.created_at | date: 'HH:mm d MMM YYYY '}}
           </h5>
-          <div class="small-ratings">
-            <i class="fa fa-star rating-color" *rating="item.rate"></i>
-            <i class="fa fa-star" *rating="5-item.rate"></i>
+<!--          <div class="small-ratings">-->
+<!--            <i class="fa fa-star rating-color" *rating="item.rate"></i>-->
+<!--            <i class="fa fa-star" *rating="5-item.rate"></i>-->
+<!--          </div>-->
+
+          <div class="small-ratings d-flex">
+            <div *ngFor="let star of maxRating(5)">
+              <i class="fa fa-star" [ngClass]="{'rating-color': (star <= item.rate)}"></i>
+            </div>
           </div>
           <p>{{item.text}}</p>
         </div>
